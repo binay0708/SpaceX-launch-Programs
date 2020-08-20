@@ -1,3 +1,5 @@
+Lighthouse Screenshot: (![lighthouse](https://user-images.githubusercontent.com/65712547/90744173-897cb780-e2ed-11ea-8304-9aca6598d9f3.png)
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

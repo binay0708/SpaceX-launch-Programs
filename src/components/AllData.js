@@ -18,11 +18,15 @@ class AllData extends React.Component {
     this.setState({ images: response.data });
   };
 
-  onFilterSubmit = async (term, launch_success) => {
+  onFilterSubmit = async (term, launch_success, land_success) => {
     const response = await axios.get(
       "https://api.spacexdata.com/v3/launches?limit=100",
       {
-        params: { launch_year: term, launch_success: launch_success },
+        params: {
+          launch_year: term,
+          launch_success: launch_success,
+          land_success: land_success,
+        },
       }
     );
 

@@ -3,29 +3,34 @@ import React from "react";
 import "./Filter.css";
 
 class Filter extends React.Component {
-  state = { term: "", launch_success: "" };
+  state = { term: "", launch_success: "", land_success:"" };
 
-  onFilteredData = (e) => {
+  onFilteredData = (e, type) => {
     e.preventDefault();
     let url = "";
-    if (e.target.value === "true" || e.target.value === "false") {
+    if (type && type === 'success') {
       this.setState({ launch_success: e.target.value });
       url = this.state.term
         ? "year=" + this.state.term + "&launch=" + e.target.value
         : "launch=" + e.target.value;
-
-      this.props.onSubmit(
-        this.state.term, e.target.value
-      );
-    } else {
+      url = url + (this.state.land_success? '&land='+ this.state.land_success: '') 
+      this.props.onSubmit(this.state.term, e.target.value, this.state.land_success);
+    } else if(type && type === 'land') {
+        this.setState({ land_success: e.target.value });
+        url = this.state.term
+          ? "year=" + this.state.term + '&': "";
+        url =
+          url +
+          (this.state.launch_success
+            ? "&launch=" + this.state.launch_success + '&'
+            : "");
+        url = url + 'land=' + e.target.value
+        this.props.onSubmit(this.state.term, this.state.launch_success , e.target.value);
+    }else {
       this.setState({ term: e.target.value });
-      url =
-        "year=" +
-        e.target.value +
-        (this.state.launch_success
-          ? "&launch=" + this.state.launch_success
-          : "");
-    this.props.onSubmit(e.target.value, this.state.launch_success);
+      url = "year=" + e.target.value + (this.state.launch_success? "&launch=" + this.state.launch_success: "");
+      url = url + (this.state.land_success ? "&land=" + this.state.land_success : ""); 
+      this.props.onSubmit(e.target.value, this.state.launch_success);
     }
     window.history.pushState("", "", url);
   };
@@ -187,7 +192,7 @@ class Filter extends React.Component {
           </div>
 
           <div className="text-filter">
-            <p>Launch Success</p>
+            <p>Successful Launch</p>
             <hr />
           </div>
 
@@ -196,7 +201,7 @@ class Filter extends React.Component {
               type="submit"
               className="btn btn-success btn-sm"
               value="true"
-              onClick={this.onFilteredData}
+              onClick={(e) => this.onFilteredData(e, "success")}
             >
               True
             </button>
@@ -204,7 +209,29 @@ class Filter extends React.Component {
               type="submit"
               className="btn btn-success btn-sm"
               value="false"
-              onClick={this.onFilteredData}
+              onClick={(e) => this.onFilteredData(e, "success")}
+            >
+              False
+            </button>
+          </div>
+          <div className="text-filter">
+            <p>Successful Landing</p>
+            <hr />
+          </div>
+          <div>
+            <button
+              type="submit"
+              className="btn btn-success btn-sm"
+              value="true"
+              onClick={(e) => this.onFilteredData(e, "land")}
+            >
+              True
+            </button>
+            <button
+              type="submit"
+              className="btn btn-success btn-sm"
+              value="false"
+              onClick={(e) => this.onFilteredData(e, "land")}
             >
               False
             </button>

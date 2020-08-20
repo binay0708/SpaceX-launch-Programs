@@ -23,7 +23,7 @@ body {
 
 @media (max-width: 576px) {
   button {
-    margin-left: 70px;
+    margin-left: 50px;
     margin-bottom: 0.5rem;
     padding-top: 0px;
   }

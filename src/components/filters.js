@@ -6,12 +6,17 @@ class Filter extends React.Component {
   state = { term: "", launch_success: "" };
 
   onFilteredData = (e) => {
+    e.preventDefault();
     let url = "";
     if (e.target.value === "true" || e.target.value === "false") {
       this.setState({ launch_success: e.target.value });
       url = this.state.term
         ? "year=" + this.state.term + "&launch=" + e.target.value
         : "launch=" + e.target.value;
+
+      this.props.onSubmit(
+        this.state.term, e.target.value
+      );
     } else {
       this.setState({ term: e.target.value });
       url =
@@ -20,10 +25,8 @@ class Filter extends React.Component {
         (this.state.launch_success
           ? "&launch=" + this.state.launch_success
           : "");
-    }
-
-    e.preventDefault();
     this.props.onSubmit(e.target.value, this.state.launch_success);
+    }
     window.history.pushState("", "", url);
   };
 

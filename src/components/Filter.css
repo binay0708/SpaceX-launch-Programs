@@ -1,0 +1,75 @@
+.filter-style {
+  margin-right: 1rem;
+}
+.text-filter {
+  text-align: center;
+}
+
+hr {
+  width: 60%;
+  margin-top: 0px;
+}
+
+button {
+  margin-right: 2rem;
+  margin-left: 2rem;
+  margin-bottom: 0.5rem;
+  padding-top: 0px;
+}
+
+body {
+  background: whitesmoke;
+}
+
+@media (max-width: 576px) {
+  button {
+    margin-left: 70px;
+    margin-bottom: 0.5rem;
+    padding-top: 0px;
+  }
+  hr {
+    width: 50%;
+    margin-top: 0px;
+  }
+}
+
+@media (min-width: 576px) and (max-width: 768px) {
+  button {
+    margin-left: 110px;
+    margin-bottom: 0.5rem;
+    padding-top: 0px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+  button {
+    margin-left: 1px;
+    margin-bottom: 0.5rem;
+
+    padding-bottom: 5px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .filter-style {
+    margin-right: 1rem;
+  }
+  .text-filter {
+    text-align: center;
+  }
+
+  hr {
+    width: 60%;
+    margin-top: 0px;
+  }
+
+  button {
+    margin-left: 40px;
+    margin-bottom: 0.5rem;
+    padding-top: 0px;
+  }
+
+  body {
+    background: whitesmoke;
+  }
+}

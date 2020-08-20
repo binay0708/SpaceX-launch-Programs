@@ -69,4 +69,4 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
 
-Lighthouse Screenshot: ![lighthouse_ss](https://user-images.githubusercontent.com/65712547/90747542-ad8cc880-e2ee-11ea-9780-f664408f5c18.png)
+Lighthouse Screenshot: ![lighthouse_ss_1](https://user-images.githubusercontent.com/65712547/90749020-8cc57280-e2f0-11ea-8955-349bd4b934c8.png)
